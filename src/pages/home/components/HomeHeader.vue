@@ -18,6 +18,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+ @import '~style/variable.styl'
   .header
     display: flex
     width: 100%

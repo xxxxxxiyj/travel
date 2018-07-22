@@ -7,7 +7,9 @@
           <span class="iconfont">&#xe61d;</span>
           输入城市/景点
         </div>
-        <div class="right">{{this.city}}<span class="iconfont arrow-icon">&#xe623;</span></div>
+        <router-link to="/city">
+          <div class="right">{{this.city}}<span class="iconfont arrow-icon">&#xe623;</span></div>
+        </router-link>
     </div>
 </template>
 
@@ -48,6 +50,7 @@ export default {
       float: right
       width: 1.24rem
       text-align: center
+      color: #fff
       .arrow-icon
         font-size: .2rem
         margin-left: .08rem

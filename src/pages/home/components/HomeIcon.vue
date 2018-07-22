@@ -97,6 +97,8 @@ export default {
     padding-bottom: 50%
     width: 100%
     height: 0
+  .icon-wrap
+    background-color: #fff
     .icon-item
       float: left
       position: relative

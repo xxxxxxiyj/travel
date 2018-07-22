@@ -1,10 +1,10 @@
 <template>
     <div class="home">
-      <home-header></home-header>
-      <home-swiper></home-swiper>
-      <home-icon></home-icon>
-      <hot-list></hot-list>
-      <home-command></home-command>
+      <home-header :city="city"></home-header>
+      <home-swiper :list="swiperList"></home-swiper>
+      <home-icon :list="iconList"></home-icon>
+      <hot-list :list="hotList"></hot-list>
+      <home-command :list="commandList"></home-command>
     </div>
 </template>
 
@@ -14,6 +14,7 @@ import HomeSwiper from './components/HomeSwiper'
 import HomeIcon from './components/HomeIcon'
 import HotList from './components/HotList'
 import HomeCommand from './components/HomeCommand'
+import axios from 'axios'
 export default {
   name: 'Home',
   components: {
@@ -22,6 +23,35 @@ export default {
     HomeIcon,
     HotList,
     HomeCommand
+  },
+  data () {
+    return {
+      city: '',
+      swiperList: {},
+      iconList: {},
+      hotList: {},
+      commandList: {}
+    }
+  },
+  methods: {
+    getHomeInfo () {
+      axios.get('./api/index.json')
+        .then(this.getHomeInfoSuc)
+    },
+    getHomeInfoSuc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.city = data.city
+        this.swiperList = data.swiperList
+        this.iconList = data.iconList
+        this.hotList = data.hotList
+        this.commandList = data.recommendList
+      }
+    }
+  },
+  mounted () {
+    this.getHomeInfo()
   }
 }
 </script>

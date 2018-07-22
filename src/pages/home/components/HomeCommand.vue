@@ -1,13 +1,13 @@
 <template>
   <div class="command-wrap">
     <h3><img class="title-img" src="http://img1.qunarzz.com/piao/fusion/1711/89/ebc329f16c55bb02.png">猜你喜欢</h3>
-    <div class="command-item" v-for="item of commandList" :key=item.title>
+    <div class="command-item" v-for="item of list" :key=item.title>
       <img class="command-img" :src="item.imgUrl">
       <div class="command-desc">
         <div class="command-title">{{ item.title }}</div>
         <div class="command-star">
           <span class="star-level iconfont">&#xe61a;&#xe61a;&#xe61a;&#xe61a;&#xe61a;</span>
-          <span class="comment">1354条评论</span>
+          <span class="comment">{{ item.comment }}条评论</span>
         </div>
         <div class="command-price">
           <span class="price">￥<em class="price-num">{{ item.price }}</em></span>起
@@ -21,32 +21,8 @@
 <script>
 export default {
   name: 'HomeCommand',
-  data () {
-    return {
-      commandList: [
-        {
-          title: '金海湖风景区',
-          comment: '1354',
-          price: '24',
-          address: '平谷区',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1609/7a/7ae8ee7831836095a3.water.jpg_200x200_36727f69.jpg'
-        },
-        {
-          title: '北京国际鲜花港',
-          comment: '1921',
-          price: '24.9',
-          address: '顺义区',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1803/12/126471e0966aca5ba3.img.jpg_200x200_f1286016.jpg'
-        },
-        {
-          title: '北京欢乐谷',
-          comment: '55205',
-          price: '49',
-          address: '朝阳区',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1508/a5/4003f9dd7bebf61eccbf64046e26d487.water.jpg_200x200_7690e4cd.jpg'
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

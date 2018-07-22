@@ -8,7 +8,7 @@
       </h3>
     </div>
     <div class="list">
-      <div class="list-item" v-for="item of hotList" :key="item.id">
+      <div class="list-item" v-for="item of list" :key="item.id">
         <img class="list-img" :src="item.imgUrl">
         <div class="place">{{ item.title }}</div>
         <div class="price">￥{{ item.price }}<span class="normal">起</span></div>
@@ -20,52 +20,14 @@
 <script>
 export default {
   name: 'HotList',
-  data () {
-    return {
-      hotList: [
-        {
-          id: '00001',
-          title: '故宫',
-          price: '20',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg'
-        },
-        {
-          id: '00002',
-          title: '水立方',
-          price: '14',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_150x150_8a63d940.jpg'
-        },
-        {
-          id: '00003',
-          title: '八达岭长城',
-          price: '25',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_150x150_2dec3e78.jpg'
-        },
-        {
-          id: '00004',
-          title: '故宫',
-          price: '20',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg'
-        },
-        {
-          id: '00005',
-          title: '水立方',
-          price: '14',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_150x150_8a63d940.jpg'
-        },
-        {
-          id: '00006',
-          title: '八达岭长城',
-          price: '25',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_150x150_2dec3e78.jpg'
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+@import '~style/mixins.styl'
   .list-wrap
     margin-top: .2rem
     background-color: #fff
@@ -102,6 +64,7 @@ export default {
         .place
           margin: .1rem
           color: #212121
+          ellipsis()
         .price
           color: #ff8300
           .normal

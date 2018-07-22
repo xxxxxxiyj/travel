@@ -7,13 +7,16 @@
           <span class="iconfont">&#xe61d;</span>
           输入城市/景点
         </div>
-        <div class="right">城市<span class="iconfont arrow-icon">&#xe623;</span></div>
+        <div class="right">{{this.city}}<span class="iconfont arrow-icon">&#xe623;</span></div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 
@@ -22,8 +25,8 @@ export default {
   .header
     display: flex
     width: 100%
-    height: .86rem
-    line-height: .86rem
+    height: .88rem
+    line-height: .88rem
     background-color: #f8c43a
     color: #fff
     .left

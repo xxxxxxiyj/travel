@@ -8,11 +8,17 @@
       </h3>
     </div>
     <div class="list">
-      <div class="list-item" v-for="item of list" :key="item.id">
+      <router-link
+        tag="div"
+        class="list-item"
+        v-for="item of list"
+        :key="item.id"
+        :to="'/detail/' + item.id"
+      >
         <img class="list-img" :src="item.imgUrl">
         <div class="place">{{ item.title }}</div>
         <div class="price">￥{{ item.price }}<span class="normal">起</span></div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

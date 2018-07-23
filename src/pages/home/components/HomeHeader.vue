@@ -8,22 +8,20 @@
           输入城市/景点
         </div>
         <router-link to="/city">
-          <div class="right">{{this.city}}<span class="iconfont arrow-icon">&#xe623;</span></div>
+          <div class="right">{{this.$store.state.city}}<span class="iconfont arrow-icon">&#xe623;</span></div>
         </router-link>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader',
-  props: {
-    city: String
-  }
+  name: 'HomeHeader'
 }
 </script>
 
 <style lang="stylus" scoped>
- @import '~style/variable.styl'
+@import '~style/variable.styl'
+@import '~style/mixins.styl'
   .header
     display: flex
     width: 100%
@@ -51,6 +49,7 @@ export default {
       width: 1.24rem
       text-align: center
       color: #fff
+      ellipsis()
       .arrow-icon
         font-size: .2rem
         margin-left: .08rem

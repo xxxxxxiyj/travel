@@ -4,7 +4,13 @@
       <div class="area">
         <div class="title">热门城市</div>
         <div class="hot-city-list">
-          <button v-for="item of hotCityList" :key="item.id">{{item.name}}</button>
+          <button
+            v-for="item of hotCityList"
+            :key="item.id"
+            @click="HandleCityClick(item.name)"
+          >
+            {{item.name}}
+          </button>
         </div>
       </div>
       <div class="area">
@@ -22,7 +28,13 @@
       <div class="area" v-for="(item, key) of cityList" :key="key" :ref="key">
         <div class="title">{{ key }}</div>
         <div class="alphabet-city">
-          <button v-for="inner of item" :key="inner.id">{{ inner.name }}</button>
+          <button
+            v-for="inner of item"
+            :key="inner.id"
+            @click="HandleCityClick(inner.name)"
+          >
+            {{ inner.name }}
+          </button>
         </div>
       </div>
     </div>
@@ -45,6 +57,10 @@ export default {
   methods: {
     HandleLetterClick (e) {
       this.letter = e.target.innerText
+    },
+    HandleCityClick (city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   },
   watch: {

@@ -46,7 +46,9 @@ export default {
       color: #999
     .right
       float: right
-      width: 1.24rem
+      min-width: 1.04rem
+      padding-left: .03rem
+      padding-right: .05rem
       text-align: center
       color: #fff
       ellipsis()

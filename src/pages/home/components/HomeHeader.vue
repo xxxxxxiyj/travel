@@ -8,14 +8,18 @@
           输入城市/景点
         </div>
         <router-link to="/city">
-          <div class="right">{{this.$store.state.city}}<span class="iconfont arrow-icon">&#xe623;</span></div>
+          <div class="right">{{this.city}}<span class="iconfont arrow-icon">&#xe623;</span></div>
         </router-link>
     </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  computed: {
+    ...mapState(['city'])
+  }
 }
 </script>
 

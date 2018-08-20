@@ -1,22 +1,42 @@
 <template>
-  <div class="banner-wrap">
-    <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg">
-    <div class="banner-info">
-      <div class="img-num">
-        <span class="iconfont icon-img">&#xe626;</span>
-        <span class="num">10</span>
+  <div>
+    <div class="banner-wrap" @click="HandleGallaryClick">
+      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg">
+      <div class="banner-info">
+        <div class="img-num">
+          <span class="iconfont icon-img">&#xe626;</span>
+          <span class="num">10</span>
+        </div>
+        <div class="detail-title">故宫(AAAAA景区)</div>
       </div>
-      <div class="detail-title">故宫(AAAAA景区)</div>
+      <div class="back-wrap">
+        <span class="iconfont icon-back"></span>
+      </div>
     </div>
-    <div class="back-wrap">
-      <span class="iconfont icon-back"></span>
-    </div>
+    <gallary @close="HandleGallaryClose" v-if="showGallary"></gallary>
   </div>
 </template>
 
 <script>
+import Gallary from 'common/gallary/Gallary'
 export default {
-  name: 'Banner'
+  name: 'Banner',
+  components: {
+    Gallary
+  },
+  data () {
+    return {
+      showGallary: false
+    }
+  },
+  methods: {
+    HandleGallaryClose () {
+      this.showGallary = false
+    },
+    HandleGallaryClick () {
+      this.showGallary = true
+    }
+  }
 }
 </script>
 
